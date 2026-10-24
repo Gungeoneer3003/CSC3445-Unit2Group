@@ -1,0 +1,145 @@
+\DocumentMetadata{
+  lang          = en-US,
+  pdfstandard   = {ua-2},
+  tagging       = on,
+  tagging-setup = {math/setup=mathml-SE} 
+}
+\documentclass{article}
+\def\showanswers{0}
+\def\whichlecture{}
+\def\lecturetopic{}
+
+% \documentclass{article}
+\usepackage{caption}
+\usepackage[pdftex]{graphicx}
+\usepackage{listings}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc,shapes.multipart,chains,arrows}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+% \usepackage{enumerate}
+% \usepackage{enumitem}
+\usepackage{multicol}
+% \usepackage{algorithmic}
+\usepackage{algorithm,caption}
+\usepackage[noend]{algpseudocode}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{version}
+\usepackage{listings, lstautogobble}
+\usepackage{tcolorbox}
+\usepackage{wrapfig}
+
+\usepackage{amsmath}
+% \usepackage[scaled]{helvet}
+% \renewcommand\familydefault{\sfdefault} 
+% \usepackage[T1]{fontenc}
+
+
+\lstset {
+    language=C++,
+    backgroundcolor=\color{white!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+    autogobble = true,
+}
+
+\tikzstyle{vertex}=[circle,draw=black,minimum size=20pt,inner sep=0pt]
+\tikzstyle{edge} = [draw,thick]
+\tikzstyle{weight} = [font=\small]
+
+
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}%[section]
+\newtheorem{question}{Question}%[section]
+
+
+%% For use with balanced BSTs
+\tikzset{
+itria/.style={
+  draw,dashed,shape border uses incircle,
+  isosceles triangle,shape border rotate=90,yshift=-1.45cm}}
+
+\newenvironment {solution}
+{
+\begin{tcolorbox}
+}
+{
+\end{tcolorbox}
+}
+
+
+
+\newcommand{\qacc}{q_{\textnormal{accept}}}
+\newcommand{\qrej}{q_{\textnormal{reject}}}
+
+
+
+\title{Unit 2 Group Problem Session}
+\author{
+    Daniel Frishberg \\
+    Chris Amey, Alex Hanus, Zachary Harder, Nolan Knievel, and Ronan Biggs    
+}
+\date{Cal Poly CSC 3445, Fall 2026}
+
+\begin{document}
+\lstset{upquote=true}
+\setlength\parindent{0em}
+
+\maketitle
+
+\section{Instructions}
+Solve these problems together, in a group of four.
+
+Each team member will write up the solution to one of the questions.
+
+Submit your solutions to Gradescope (more instructions to follow in Canvas). You will need to provide:
+
+\begin{itemize}
+    \item The names of all team members
+    \item Your solutions to the problems, indicating who wrote up each solution.
+    \item \textbf{You may consult generative AI tools and other sources, but do not use them to write your solutions.}
+    \item Cite any external sources or tools used and you used them, or indicate that you did not use any. \textbf{This part is required.}
+\end{itemize}
+
+\pagebreak
+
+\section{Questions}
+\begin{enumerate}
+\item Let $\Sigma = \{a, b, c\}$. Draw a PDA that recognizes the following language:
+\[
+    \{ a^kb^{2l}c^m \mid l \geq 0, m > k \geq 0\} 
+\]
+
+
+\item Write a CFG that generates the language
+\[
+    \{a^kb^{2l}c^m \mid l \geq k \geq 0, m \geq 0\}
+\]
+\textbf{Note this is NOT the language in the previous question.}
+
+
+The CFG does \textbf{not} have to be in Chomsky normal form (CNF).
+
+\item Consider the following CFG.
+\begin{align*}
+    S &\rightarrow ZT \mid YR \mid ZZ \mid YY \mid 0 \mid 1\\
+    X &\rightarrow ZT \mid YR \mid ZZ \mid YY \mid 0 \mid 1\\   
+    R &\rightarrow XY\\
+    T &\rightarrow XZ \\
+    Z &\rightarrow 0 \\
+    Y &\rightarrow 1
+\end{align*} 
+
+Consider the string $00100$. Run the CYK algorithm to determine whether $G$ generates this string. If it does, recover the parse tree that results from the algorithm. If not, say why not.
+
+\item Consider the language $L = \{r\#st\#ts \mid r,s,t \in \{0,1\}^* \}$. Prove that $L$ is not context free using the pumping lemma for context-free languages.
+
+\end{enumerate}
+\end{document}
