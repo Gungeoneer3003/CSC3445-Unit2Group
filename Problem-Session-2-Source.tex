@@ -1,9 +1,9 @@
-\DocumentMetadata{
-  lang          = en-US,
-  pdfstandard   = {ua-2},
-  tagging       = on,
-  tagging-setup = {math/setup=mathml-SE} 
-}
+% \DocumentMetadata{
+%   lang          = en-US,
+%   pdfstandard   = {ua-2},
+%   tagging       = on,
+%   tagging-setup = {math/setup=mathml-SE} 
+% }
 \documentclass{article}
 \def\showanswers{0}
 \def\whichlecture{}
@@ -282,6 +282,47 @@ Since $S \in X_{1,5}$, $G$ generates $00100$.
 \end{solution}
 
 \item Consider the language $L = \{r\#st\#ts \mid r,s,t \in \{0,1\}^* \}$. Prove that $L$ is not context free using the pumping lemma for context-free languages.
+
+\begin{solution}
+\textbf{Author: Ronan Biggs}
+
+\vspace{0.5cm}
+
+Assume $L$ is context-free. Then there exists a pumping length $p$.
+Let
+\[
+    w = r\#st\#ts, \qquad r = s = \varepsilon, \qquad t = 0^p1^p.
+\]
+Then $w \in L$ and $|w| \leq p$. $w = uvxyz$.
+
+\medskip
+\textbf{Case 1: $\#$ is in $v$ or $y$.}
+Let $w' = uv^2xy^2z$. Then the number of $\#$ symbols in $w'$ is greater
+than two, so $w' \notin L$.
+
+\medskip
+\textbf{Case 2: $uxy$ lies either between the $\#$ symbols or after the
+second $\#$, and $|vy| > 0$.}
+Let $w' = uv^2xy^2z$. Then
+\[
+    w' = \#t'\#t'', \qquad |t'| \neq |t''|.
+\]
+
+\medskip
+\textbf{Case 3: $x$ contains the second $\#$, and $|vy| > 0$.}
+By (1), $v$ contains only $1$'s and $u$ contains only $0$'s.
+Let $w' = uv^2xy^2z$. Then $w' = \#t'\#t''$, where $t'$ has more $1$'s
+than $t''$, or $t''$ has more $0$'s than $t'$.
+
+\medskip
+By (2), these cases are exhaustive. By (1), $w' \in L$, but in all cases
+$w' \notin L$. This contradiction means that $L$ is not context-free.
+
+\vspace{0.5cm}
+
+\textbf{AI Usage and Outside Sources:} I used AI to convert my written
+solution to LaTeX.
+\end{solution}
 
 \end{enumerate}
 \end{document}
